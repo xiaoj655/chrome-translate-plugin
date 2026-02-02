@@ -275,6 +275,8 @@
   padding-bottom: 12px;
   margin-bottom: 12px;
   border-bottom: 1px dashed #ddd;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .st-original-label {
@@ -287,6 +289,8 @@
 .st-translated-text {
   color: #1a1a1a;
   font-size: 15px;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .st-translated-label {

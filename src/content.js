@@ -65,7 +65,7 @@
 
   // 处理鼠标抬起
   function handleMouseUp(e) {
-    // 忽略在翻译面板内的点击
+    // 忽略在翻译面板内的操作（包括选择文本）
     if (state.panel && state.panel.contains(e.target)) {
       return;
     }
@@ -75,6 +75,14 @@
 
     const selection = window.getSelection();
     const text = selection.toString().trim();
+
+    // 检查选区是否在面板内
+    if (text && selection.rangeCount > 0) {
+      const range = selection.getRangeAt(0);
+      if (state.panel && state.panel.contains(range.commonAncestorContainer)) {
+        return;
+      }
+    }
 
     if (text && text.length > 0) {
       state.selectedText = text;
